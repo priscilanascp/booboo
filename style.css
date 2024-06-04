@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=DM+Sans&family=Inter:wght@100;200;300;400;500&family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'DM Sans', 'Be Vietnam', 'Roboto', sans-serif;
+}
+
+html {
+  background: black;
+ }
+
+.container {
+    padding: 100px;
+    width: 350px;
+    height: 50vh;
+    color: #fff;
+    background: #b597;
+    border-radius: 8px;
+    border: none;
+    margin-left: 500px;
+    margin-top: 150px;
+    text-align: center;
+    text-shadow: #000;
+    font-size: 20px;
+    font-family: 'DM Sans';
+    cursor: pointer;
+}
+
+.container:hover {
+    transform: translateY(-0.25em);
+}
+
+
+
+input {
+    color:violet;
+    width:150px;
+    padding:5px;
+    border-radius: 3px;
+    border: none;
+}
+
+::placeholder {
+   color: violet;
+   font-family: 'Roboto';
+   text-align: center;
+}
+
+input[type="submit"] {
+    cursor: pointer;
+    border: none;
+    background: #e2a8fd;
+    margin-top:5px;
+    color: #000;
+    font-family: 'Roboto';
+    text-transform: uppercase;
+}
+
+input[type="submit"]:hover {
+    background:#000;
+    color: violet;
+}
+
+
+img {
+    width: 168px;
+    float: right;
+}
+
+
+.hidden-panda {
+    width: 140px;
+    float: right;
+}
+
+
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.box {
+    background: rgb(106, 66, 143);
+    padding: 100px;
+    width: 350px;
+    height: 50vh;
+    color: #fff;
+    border-radius: 8px;
+    border: none;
+    margin-left: 500px;
+    margin-top: 150px;
+    text-align: center;
+    text-shadow: #000;
+    font-size: 20px;
+    font-family: 'DM Sans';
+    cursor: pointer;
+}
+
+
+.box:hover {
+    transform: translateY(-0.25em);
+}
+
+
+/* Media queries for responsive adjustments */
+@media only screen and (max-width: 768px) {
+    .container {
+      width: 80%;  /* Set width to 90% for smaller screens */
+      
+    }
+  
+    .container {
+      margin: 50px auto;  /* Adjust margins for smaller screens */
+      
+    }
+
+    .box {
+        width:80%;
+        margin: 50px auto; 
+    }
+  }
+  
+  input {
+    color: violet;
+    width: 150px;
+    padding: 5px;
+    border-radius: 3px;
+    border: none;
+  }
+  
+  ::placeholder {
+    color: violet;
+    font-family: 'Roboto';
+    text-align: center;
+  }
+  
+  input[type="submit"] {
+    cursor: pointer;
+    border: none;
+    background: #e2a8fd;
+    margin-top: 5px;
+    color: #000;
+    font-family: 'Roboto';
+    text-transform: uppercase;
+  }
+  
+  input[type="submit"]:hover {
+    background: #000;
+    color: violet;
+  }
+  
+  img {
+    width: 168px;
+    float: right;
+  }
+  
+  .hidden-panda {
+    width: 140px;
+    float: right;
+  }
+

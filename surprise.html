@@ -1,0 +1,464 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" type="text/css" href="surprise.css">
+ <title>Booboo</title>
+
+ <script src='https://www.gstatic.com/charts/loader.js'></script>
+ <script>
+  google.charts.load('upcoming', { 'packages': ['vegachart'] }).then(drawChart);
+
+  function drawChart() {
+   const dataTable = new google.visualization.DataTable();
+   dataTable.addColumn({ type: 'string', 'id': 'category' });
+   dataTable.addColumn({ type: 'number', 'id': 'amount' });
+   dataTable.addRows([
+    ['2014', 65],
+    ['2015', 70],
+    ['2016', 90],
+    ['2017', 71],
+    ['2018', 81],
+    ['2019', 100],
+    ['2020', 58],
+    ['2021', 87],
+    ['2022', 90],
+    ['2023', 90],
+    ['2024', 97],
+   ]);
+
+   const options = {
+    "vega": {
+     "$schema": "https://vega.github.io/schema/vega/v4.json",
+     "width": 500,
+     "height": 200,
+     "padding": 5,
+
+     'data': [{ 'name': 'table', 'source': 'datatable' }],
+
+     "signals": [
+      {
+       "name": "tooltip",
+       "value": {},
+       "on": [
+        { "events": "rect:mouseover", "update": "datum" },
+        { "events": "rect:mouseout", "update": "{}" }
+       ]
+      }
+     ],
+
+     "scales": [
+      {
+       "name": "xscale",
+       "type": "band",
+       "domain": { "data": "table", "field": "category" },
+       "range": "width",
+       "padding": 0.05,
+       "round": true
+      },
+      {
+       "name": "yscale",
+       "domain": { "data": "table", "field": "amount" },
+       "nice": true,
+       "range": "height"
+      }
+     ],
+
+     "axes": [
+      { "orient": "bottom", "scale": "xscale" },
+      { "orient": "left", "scale": "yscale" }
+     ],
+
+     "marks": [
+      {
+       "type": "rect",
+       "from": { "data": "table" },
+       "encode": {
+        "enter": {
+         "x": { "scale": "xscale", "field": "category" },
+         "width": { "scale": "xscale", "band": 1 },
+         "y": { "scale": "yscale", "field": "amount" },
+         "y2": { "scale": "yscale", "value": 0 }
+        },
+        "update": {
+         "fill": { "value": " #82027c" }
+        },
+        "hover": {
+         "fill": { "value": "#000" }
+        }
+       }
+      },
+      {
+       "type": "text",
+       "encode": {
+        "enter": {
+         "align": { "value": "center" },
+         "baseline": { "value": "bottom" },
+         "fill": { "value": "violet" }
+        },
+        "update": {
+         "x": { "scale": "xscale", "signal": "tooltip.category", "band": 0.5 },
+         "y": { "scale": "yscale", "signal": "tooltip.amount", "offset": -2 },
+         "text": { "signal": "tooltip.amount" },
+         "fillOpacity": [
+          { "test": "datum === tooltip", "value": 0 },
+          { "value": 1 }
+         ]
+        }
+       }
+      }
+     ]
+    }
+   };
+
+   const chart = new google.visualization.VegaChart(document.getElementById('chart-div'));
+   chart.draw(dataTable, options);
+  }
+ </script>
+
+
+</head>
+
+
+<body>
+
+
+ <header>
+<div class="header">
+  <nav>
+    <h6>Panda Planet</h6>
+<img class="logo" src="./images/panda.gif" alt="panda">
+  </nav>
+  
+  <ul>
+
+   <a class="a-nav" href="#Home">Home</a>
+  
+   <a class="a-nav" href="#Sobre Voce" class="link-nav">Sobre Você</a>
+   
+   <a class="a-nav" href="#NiveldeAmor" class="link-nav">Nivel de Amor</a>
+
+   <a class="a-nav" href="#Atributos" class="link-nav">Atributos</a>
+
+   <a class="a-nav" href="#Musicas" class="link-nav">Musicas</a>
+  </ul>
+
+</div>
+ </header>
+
+ <h1 class="#Home">Coisas que eu gosto em você</h1>
+
+<div class="cards">
+  <div class="card">
+    <img class="card-image" src="./images/woodbuzz.jpg" alt="image">
+    <div class="card-content">
+      <h3>Senso de humor:</h3> <h5> quando eu to com você eu consigo sorrir mais e consequentemente ficar mais leve</h5>
+        <div class="blank"></div>
+        </h3>
+    </div>
+</div>
+
+<div class="card">
+  <img class="card-image" src="./images/cats.jpg" alt="image">
+  <div class="card-content">
+   
+    <h3>Facilidade em perceber o que eu sinto:</h3> <h5> nenhuma pessoa sabe me ler melhor do que você, mesmo que eu não diga nenhuma palavra</h5>
+        <div class="blank-2"></div>
+        </h3>
+  </div>
+</div>
+<div class="card">
+  <img class="card-image" src="./images/pretty.jpg" alt="image">
+  <div class="card-content">
+   
+    
+    <h3>Amo seu estilo:</h3> <h5>desde o primeiro dia e até hoje continua uma grande gostosa gótica</h5>
+        <div class="blank-3"></div>
+        </h3>
+  </div>
+</div>
+<div class="card">
+  <img class="card-image" src="./images/hearts.jpg" alt="image">
+  <div class="card-content">
+   
+    <h3>Adoro seu jeitinho:</h3> <h5> a forma como vai contra tudo o que é comum e como defende o que acredita sempre com um ótimo argumento</h5>
+        <div class="blank-4"></div>
+        </h3>
+  </div>
+</div>
+<div class="card">
+  <img class="card-image" src="./images/a.jpg" alt="image">
+  <div class="card-content">
+   
+    <h3>Amo seus detalhes:</h3> <h5> desde a pequena cicatriz no rosto até a sua voz, que por mais que as vezes eu não entenda o que você fala, mesmo assim eu adoro te ouvir falar </h5>
+    <div class="blank-5"></div>
+    </h3>
+  </div>
+</div>
+<div class="card">
+  <img class="card-image" src="./images/meplusyou.jpg" alt="image">
+  <div class="card-content">
+   
+    <h3>Eu amo que você seja respeitosa e atenciosa:</h3> <h5>não invade meus limites, valoriza minhas prioridades e respeita meu tempo. Por mais distante que seja, sempre que percebe que eu preciso, você cuida de mim</h5>
+    <div class="blank-6"></div>
+    </h3>
+  </div>
+</div>
+<div class="card">
+  <img class="card-image" src="./images/smiley.jpg" alt="image">
+  <div class="card-content">
+   
+    <h3>Eu amo sua amizade: </h3> <h5>o jeito que você não desiste de mim, mesmo quando estamos separadas você se preocupa comigo, e quando eu sumo, você é quemeu quero comigo</h5>
+        <div class="blank-7"></div>
+        </h3>
+  </div>
+</div>
+<div class="card">
+  <img class="card-image" src="./images/friends.jpg" alt="image">
+  <div class="card-content">
+   
+    <h3>Você é parceira:</h3> <h5> está sempre aberta pras tendencias que eu gosto de testar,como ouvir musicas,assistir alguma coisa ou algum app interativo, obrigada! eu não chamaria mais ninguém </h5>
+    <div class="blank-8"></div>
+    </h3>
+  </div>
+</div>
+
+</div>
+
+
+
+
+<h1 id="Atributos">Atributos</h1>
+ 
+<div class="center">
+      
+  <div class="skillbox">
+      <p>Inteligência</p>
+      <p>95%</p>
+      <div class="skill">
+          <div class="skill_level" style="width: 90%"></div>
+      </div>
+  </div>
+
+  <div class="skillbox">
+      <p>Aparência</p>
+      <p>100%</p>
+      <div class="skill">
+          <div class="skill_level" style="width: 100%"></div>
+      </div>
+  </div>
+
+  <div class="skillbox">
+      <p>Afeto e Carinho</p>
+      <p>77%</p>
+      <div class="skill">
+          <div class="skill_level" style="width: 77%"></div>
+      </div>
+  </div>
+
+  <div class="skillbox">
+      <p>Inimiga do Riso</p>
+      <p>36%</p>
+      <div class="skill">
+          <div class="skill_level" style="width: 36%"></div>
+      </div>
+  </div>
+  <div class="skillbox">
+   <p>Talento pra sumir</p>
+   <p>92%</p>
+   <div class="skill">
+       <div class="skill_level" style="width: 92%"></div>
+   </div>
+</div>
+<div class="skillbox">
+ <p>Lealdade</p>
+ <p>86%</p>
+ <div class="skill">
+     <div class="skill_level" style="width: 86%"></div>
+ </div>
+</div>
+<div class="skillbox">
+<p>Perspicácia</p>
+<p>89%</p>
+<div class="skill">
+   <div class="skill_level" style="width: 89%"></div>
+</div>
+</div>
+<div class="skillbox">
+<p>Paciência</p>
+<p>15%</p>
+<div class="skill">
+ <div class="skill_level" style="width: 15%"></div>
+</div>
+</div>
+<div class="skillbox">
+<p>Criatividade</p>
+<p>97%</p>
+<div class="skill">
+ <div class="skill_level" style="width: 96%"></div>
+</div>
+</div>
+<div class="skillbox">
+<p>Autenticidade</p>
+<p>95%</p>
+<div class="skill">
+ <div class="skill_level" style="width: 95%"></div>
+</div>
+</div>
+</div>
+
+ <h1 id="NiveldeAmor">Nível de amor durante os anos</h1>
+ <div class="chart" id="chart-div"
+  style="width: 650px; height: 350px; padding:50px; border-radius: 8px; font-family:'Poppins'; font-weight: bold;"></div>
+
+
+
+ 
+ 
+ <!--    
+  <h1 id="Atributos">Atributos</h1>
+
+  <div class="attb">
+  <p>Inteligência <span>90%</span> </p>
+ </div>
+ <div class="attb">
+  <p>Aparência <span>100%</span></p>
+ </div>
+ <div class="attb">
+  <p>Afeto e Carinho <span>74%</span></p>
+ </div>
+ <div class="attb">
+  <p>Inimiga do Riso <span>10%</span></p>
+ </div>
+ <div class="attb">
+  <p>Talento pra sumir <span>92%</span></p>
+ </div>
+ <div class="attb">
+  <p>Lealdade <span>86%</span></p>
+ </div>
+ <div class="attb">
+  <p>Perspicácia <span>89%</span></p>
+ </div>
+ <div class="attb">
+  <p>Paciência <span> 15%</span></p>
+ </div>
+ <div class="attb">
+  <p>Criatividade <span>93%</span></p>
+ </div>
+ <div class="attb">
+  <p>Autenticidade <span>95%</span></p>
+ </div>
+ -->
+
+
+ 
+
+<h1 id="Musicas">Musicas</h1>
+<div class="players">
+
+<div class="player">
+<div class="imgBx">
+ <img src="./images/dandelions.jpg">
+</div>
+<h2>Dandelions</h2>
+<h4>Ruth B.</h3>
+  <audio src="audio/dandelions.mp3" controls></audio>
+
+
+</div>
+
+<div class="player">
+  <div class="imgBx">
+   <img src="./images/anavitoria.jpg">
+  </div>
+  <h2>Porque Eu Te Amo</h2>
+  <h4>Anavitória</h4>
+  <audio src="audio/porqueeuteamo.mp3" controls></audio>
+  </div>
+  <div class="player">
+    <div class="imgBx">
+     <img src="./images/jao.jpg">
+    </div>
+    <h2>Idiota</h2>
+    <h4>Jão</h4>
+    <audio src="audio/idiota.mp3" controls></audio>
+    </div>
+    <div class="player">
+      <div class="imgBx">
+       <img src="./images/taylor.jpg">
+      </div>
+      <h2>This Love</h2>
+      <h4>Taylor Swift</h4>
+      <audio src="audio/thislove.mp3" controls></audio>
+      </div>
+      <div class="player">
+        <div class="imgBx">
+         <img src="./images/ed.jpg">
+        </div>
+        <h2>Ed Sheeran</h2>
+        <h4>Perfect</h4>
+        <audio src="audio/perfect.mp3" controls></audio>
+        </div>
+        <div class="player">
+          <div class="imgBx">
+           <img src="./images/nodoubt.jpg">
+          </div>
+          <h2>Don't Speak</h2>
+          <h4>No Doubt</h4>
+          <audio src="audio/dontspeak.mp3" controls></audio>
+          </div>
+          <div class="player">
+            <div class="imgBx">
+             <img src="./images/hero.jpg">
+            </div>
+            <h2>Hero</h2>
+            <h4>Nickelback</h4>
+            <audio src="audio/hero.mp3" controls></audio>
+            </div>
+            <div class="player">
+              <div class="imgBx">
+               <img src="./images/camila.jpg">
+              </div>
+              <h2>Never Be The Same</h2>
+              <h4>Camila Cabello</h4>
+              <audio src="audio/nbts.mp3" controls></audio>
+              </div>
+              <div class="player">
+                <div class="imgBx">
+                 <img src="./images/linger.jpg">
+                </div>
+                <h2>Linger</h2>
+                <h4>The Cranberries</h4>
+                <audio src="audio/linger.mp3" controls></audio>
+                </div>
+
+  </div>
+  <div class="space">     </div>
+
+  <div class="postcard">
+   
+    <span class="paragraph">Querida Booboo 
+      <br> 
+      <br>
+      <br>
+      <br>
+      
+      Isso aqui é uma pequena demonstração de afeto e carinho que tenho por você, eu sei que nunca fui boa nisso mas sou grata por me entender e permanecer todos esses anos comigo, mesmo que as vezes distante, eu costumo acreditar que nosso amor é o mais confiável que tem, porque podemos ficar longe por longo tempo mas o sentimento não muda e eu acho que também é um dos mais bonitos e genuíno. É raríssimo eu gostar de cara assim de alguém mas eu gostei de você tão rápido que eu nem percebi e também é raro durar tanto tempo, talvez porque seja como você diz "eu sou o amor da sua vida" eu já aceitei isso rsrs só falta você aceitar que eu sou o seu amor da vida, mas sendo assim ou não, eu espero que nossa amizade continue apesar de qualquer surto, desentendimento, dor ou enfim qualquer coisa. Até porque a gente não pode deixar de ser amigas, só vc conhece meu lado sombrio, não posso perder minha reputação rsrs zoeira, é só minha forma de dizer que não quero te perder, pois quem mais vai aturar meus bodes? meus sumiços? combinar mais comigo? e ser minha fã? bem, eu tenho que agradecer por tudo isso, por saber lidar comigo. Obrigada por estar comigo mesmo que seja só pra dizer "faz parte" ou "vai passar" porque literalmente tudo faz parte e eventualmente vai passar, então valeu por me ensinar a ser um pouquinho mais leve. E se quer saber? eu casaria com você (até com anéis de papel/taylor swift reference rsrs) eu conheço você, você me conhece, você me ama, eu te amo, mas se fosse possível, é claro. Talvez algum dia ou em outra vida, e eu nem sei porque eu to falando tanto mas um dia estamos aqui e no outro não mais então eu sinto que tenho que falar e é isso então. 
+
+<br>
+<br>
+      Com amor, sua booboo.
+                  
+                  
+    </span>
+    
+  </div>
+  <div class="space">     </div>
+</body>
+
+</html>
+
